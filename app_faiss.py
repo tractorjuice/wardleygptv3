@@ -83,6 +83,7 @@ book_retriever = book_index.as_retriever(search_type="mmr", search_kwargs={"k": 
 # initialize the ensemble retriever
 ensemble_retriever = EnsembleRetriever(retrievers=[yt_retriever, books_retriever], weights=[0.5, 0.5])
 
+"""
 system_template="""
     As a chatbot, analyze the provided videos on Wardley Mapping and offer insights and recommendations.
     Suggestions:
@@ -114,6 +115,7 @@ chain = RetrievalQAWithSourcesChain.from_chain_type(
     return_source_documents=True,
     chain_type_kwargs=chain_type_kwargs
 )
+"""
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
