@@ -83,7 +83,6 @@ book_retriever = book_index.as_retriever(search_type="mmr", search_kwargs={"k": 
 # initialize the ensemble retriever
 ensemble_retriever = EnsembleRetriever(retrievers=[yt_retriever, books_retriever], weights=[0.5, 0.5])
 
-"""
 system_template="""
     As a chatbot, analyze the provided videos on Wardley Mapping and offer insights and recommendations.
     Suggestions:
@@ -111,11 +110,10 @@ llm = PromptLayerChatOpenAI(
 chain = RetrievalQAWithSourcesChain.from_chain_type(
     llm=llm,
     chain_type="stuff",
-    retriever=vector_store.as_retriever(search_type="mmr", search_kwargs={"k": 3}), # Use MMR search and return 5 (max 20) video sources
+    retriever=vector_store.as_retriever(search_type="mmr", search_kwargs={"k": 3}), # Use MMR search and return 3 (max 20) video sources
     return_source_documents=True,
     chain_type_kwargs=chain_type_kwargs
 )
-"""
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
