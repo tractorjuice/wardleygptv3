@@ -70,7 +70,7 @@ else:
     st.write(f"Missing files. Upload index.faiss and index.pkl files to {YT_DATASTORE} directory first")
 
 if os.path.exists(BOOK_DATASTORE):
-    yt_index = FAISS.load_local(
+    book_index = FAISS.load_local(
         f"{BOOK_DATASTORE}",
         OpenAIEmbeddings()
     )
