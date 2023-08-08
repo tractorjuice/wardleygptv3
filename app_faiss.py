@@ -126,7 +126,7 @@ if query := st.chat_input("What question do you have for the videos?"):
                             st.write(f"Start Time: {metadata.get('start_time', '0')}")
 
                     if source == 'Simon Wardley Book':
-                        with st.expander("Source"):
+                        with st.expander(f"\nSource {index + 1}: {source}"):
                             st.write(f"\nSource {index + 1}: {source}")
                             st.write(f"Page: {metadata.get('page', 'Unknown')}")
                         
