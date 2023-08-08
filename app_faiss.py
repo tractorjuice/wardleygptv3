@@ -106,8 +106,8 @@ if query := st.chat_input("What question do you have for the videos?"):
                     metadata = document.metadata
                     source = metadata.get('source', 'Unknown
                     
-                    # Check and replace the source string if it matches the given path
-                    if source == '/content/gdrive/Shareddrives/AI/WardleyKB/books/book/Wardley Maps':
+                    # Check if the source string contains the given path
+                    if '/AI/WardleyKB/books/book/Wardley Maps' in source:
                         source = 'Simon Wardley Book'
                     
                     st.write(f"\nSource {index + 1}: {source}")
