@@ -81,7 +81,7 @@ yt_retriever = yt_index.as_retriever(search_type="mmr", search_kwargs={"k": 5})
 book_retriever = book_index.as_retriever(search_type="mmr", search_kwargs={"k": 5})
 
 # initialize the ensemble retriever
-ensemble_retriever = EnsembleRetriever(retrievers=[yt_retriever, books_retriever], weights=[0.5, 0.5])
+ensemble_retriever = EnsembleRetriever(retrievers=[yt_retriever, book_retriever], weights=[0.5, 0.5])
 
 system_template="""
     As a chatbot, analyze the provided videos on Wardley Mapping and offer insights and recommendations.
