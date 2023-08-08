@@ -110,6 +110,9 @@ if query := st.chat_input("What question do you have for the videos?"):
                     if '/AI/WardleyKB/books/book/Wardley Maps' in source:
                         source = 'Simon Wardley Book'
 
+                    cleaned_content = clean_text(document.page_content)
+                    st.write(f"Content: {cleaned_content}\n")
+
                     if source == 'YouTube':
                         start_time = int(metadata.get('start_time', 0))
                         video_id = f"Source video: https://youtu.be/{metadata.get('source_video', 'Unknown')}?t={start_time}"
@@ -127,8 +130,6 @@ if query := st.chat_input("What question do you have for the videos?"):
                             st.write(f"\nSource {index + 1}: {source}")
                             st.write(f"Page: {metadata.get('page', 'Unknown')}")
                         
-                    cleaned_content = clean_text(document.page_content)
-                    st.write(f"Content: {cleaned_content}\n")
                     st.divider()
 
         #st.session_state.messages.append({"role": "assistant", "content": response['answer']})
