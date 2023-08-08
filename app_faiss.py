@@ -104,7 +104,12 @@ if query := st.chat_input("What question do you have for the videos?"):
             for index, document in enumerate(response):
                 if 'source' in document.metadata:
                     metadata = document.metadata
-                    source = metadata.get('source', 'Unknown')
+                    source = metadata.get('source', 'Unknown
+                    
+                    # Check and replace the source string if it matches the given path
+                    if source == '/content/gdrive/Shareddrives/AI/WardleyKB/books/book/Wardley Maps':
+                        source = 'Simon Wardley Book'
+                    
                     st.write(f"\nSource {index + 1}: {source}")
                     if source == 'YouTube':
                         st.write(f"Video title: {metadata.get('title', 'Unknown')}")
