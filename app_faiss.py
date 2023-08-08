@@ -118,7 +118,7 @@ if query := st.chat_input("What question do you have for the videos?"):
                         video_id = f"Source video: https://youtu.be/{metadata.get('source_video', 'Unknown')}?t={start_time}"
                         key = f"video_{index}"
                         st_player(video_id, height=150, key=key)
-                        with st.expander("Source"):
+                        with st.expander(f"\nSource {index + 1}: {source}"):
                             st.write(f"\nSource {index + 1}: {source}")
                             st.write(f"Video title: {metadata.get('title', 'Unknown')}")
                             st.write(f"Video author: {metadata.get('author', 'Unknown')}")
