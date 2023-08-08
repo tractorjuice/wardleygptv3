@@ -106,7 +106,8 @@ if query := st.chat_input("What question do you have for the videos?"):
             for index, document in enumerate(response):
                 if 'source' in document.metadata:
                     metadata = document.metadata
-                    st.write(f"\nSource {index + 1}: {metadata.get('source', 'Unknown')}")
+                    source = metadata.get('source', 'Unknown')
+                    st.write(f"\nSource {index + 1}: {source}")
                     st.write(f"Video title: {metadata.get('title', 'Unknown')}")
                     st.write(f"Video author: {metadata.get('author', 'Unknown')}")
                     start_time = int(metadata.get('start_time', 0))
