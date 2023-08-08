@@ -118,4 +118,4 @@ if query := st.chat_input("What question do you have for the videos?"):
                     key = f"video_{index}"
                     st_player(video_id, height=150, key=key)
 
-        st.session_state.messages.append({"role": "assistant", "content": response['answer']})
+        #st.session_state.messages.append({"role": "assistant", "content": response['answer']})
