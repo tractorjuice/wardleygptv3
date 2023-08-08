@@ -100,8 +100,8 @@ if query := st.chat_input("What question do you have for the videos?"):
         with st.chat_message("assistant"):
             #response = chain(query)
             response = ensemble_retriever.get_relevant_documents("what is inertia")
-            st.markdown(response['answer'])
-            st.divider()
+            #st.markdown(response['answer'])
+            #st.divider()
             
             for index, document in enumerate(response):
                 if 'source' in document.metadata:
