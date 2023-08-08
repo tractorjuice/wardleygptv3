@@ -121,7 +121,7 @@ if query := st.chat_input("What question do you have for the videos?"):
                         key = f"video_{index}"
                         st_player(video_id, height=150, key=key)
 
-                    if source == 'YouTube':
+                    if source == 'Simon Wardley Book':
                         st.write(f"Page: {metadata.get('page', 'Unknown')}")
                         
                     cleaned_content = clean_text(document.page_content)
