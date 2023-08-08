@@ -126,5 +126,6 @@ if query := st.chat_input("What question do you have for the videos?"):
                         
                     cleaned_content = clean_text(document.page_content)
                     st.write(f"Content: {cleaned_content}\n")
+                    st.divider()
 
         #st.session_state.messages.append({"role": "assistant", "content": response['answer']})
