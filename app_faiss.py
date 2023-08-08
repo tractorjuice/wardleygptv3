@@ -104,7 +104,7 @@ if query := st.chat_input("What question do you have for the videos?"):
             for index, document in enumerate(response):
                 if 'source' in document.metadata:
                     metadata = document.metadata
-                    source = metadata.get('source', 'Unknown
+                    source = metadata.get('source', 'Unknown')
                     
                     # Check if the source string contains the given path
                     if '/AI/WardleyKB/books/book/Wardley Maps' in source:
