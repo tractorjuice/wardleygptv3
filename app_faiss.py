@@ -111,6 +111,7 @@ if query := st.chat_input("What question do you have for the videos?"):
                         source = 'Simon Wardley Book'
 
                     if source == 'YouTube':
+                        start_time = int(metadata.get('start_time', 0))
                         video_id = f"Source video: https://youtu.be/{metadata.get('source_video', 'Unknown')}?t={start_time}"
                         key = f"video_{index}"
                         st_player(video_id, height=150, key=key)
@@ -118,7 +119,6 @@ if query := st.chat_input("What question do you have for the videos?"):
                             st.write(f"\nSource {index + 1}: {source}")
                             st.write(f"Video title: {metadata.get('title', 'Unknown')}")
                             st.write(f"Video author: {metadata.get('author', 'Unknown')}")
-                            start_time = int(metadata.get('start_time', 0))
                             st.write(f"Source video: https://youtu.be/{metadata.get('source_video', 'Unknown')}?t={start_time}")
                             st.write(f"Start Time: {metadata.get('start_time', '0')}")
 
