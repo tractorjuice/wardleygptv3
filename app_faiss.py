@@ -120,6 +120,9 @@ if query := st.chat_input("What question do you have for the videos?"):
                         video_id = f"Source video: https://youtu.be/{metadata.get('source_video', 'Unknown')}?t={start_time}"
                         key = f"video_{index}"
                         st_player(video_id, height=150, key=key)
+
+                    if source == 'YouTube':
+                        st.write(f"Page: {metadata.get('page', 'Unknown')}")
                         
                     cleaned_content = clean_text(document.page_content)
                     st.write(f"Content: {cleaned_content}\n")
