@@ -77,8 +77,8 @@ if os.path.exists(BOOK_DATASTORE):
 else:
     st.write(f"Missing files. Upload index.faiss and index.pkl files to {BOOK_DATASTORE} directory first")
 
-yt_retriever = yt_index.as_retriever(search_type="mmr", search_kwargs={"k": 5})
-book_retriever = book_index.as_retriever(search_type="mmr", search_kwargs={"k": 5})
+yt_retriever = yt_index.as_retriever(search_type="mmr", search_kwargs={"k": 2})
+book_retriever = book_index.as_retriever(search_type="mmr", search_kwargs={"k": 2})
 
 # initialize the ensemble retriever
 ensemble_retriever = EnsembleRetriever(retrievers=[yt_retriever, book_retriever], weights=[0.5, 0.5])
