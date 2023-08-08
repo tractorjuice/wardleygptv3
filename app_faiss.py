@@ -109,10 +109,10 @@ if query := st.chat_input("What question do you have for the videos?"):
                     # Check if the source string contains the given path
                     if '/AI/WardleyKB/books/book/Wardley Maps' in source:
                         source = 'Simon Wardley Book'
-                    
-                    st.write(f"\nSource {index + 1}: {source}")
+
                     if source == 'YouTube':
                         with st.expander("Source"):
+                            st.write(f"\nSource {index + 1}: {source}")
                             st.write(f"Video title: {metadata.get('title', 'Unknown')}")
                             st.write(f"Video author: {metadata.get('author', 'Unknown')}")
                             start_time = int(metadata.get('start_time', 0))
@@ -123,7 +123,9 @@ if query := st.chat_input("What question do you have for the videos?"):
                         st_player(video_id, height=150, key=key)
 
                     if source == 'Simon Wardley Book':
-                        st.write(f"Page: {metadata.get('page', 'Unknown')}")
+                        with st.expander("Source"):
+                            st.write(f"\nSource {index + 1}: {source}")
+                            st.write(f"Page: {metadata.get('page', 'Unknown')}")
                         
                     cleaned_content = clean_text(document.page_content)
                     st.write(f"Content: {cleaned_content}\n")
