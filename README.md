@@ -1,13 +1,14 @@
-# Have an AI Chat with the Community Wardley Mapping Videos
-Chat with Videos on Wardley Mapping from the Community
+# Have an AI Chat with the Community Wardley Mapping Videos & Book
+Chat with Simon's Book and Videos on Wardley Mapping from the Community
 
-Chat with Wardley's videos is an AI-based application that allows you to interact with the content of videos about Wardley Mapping using the OpenAI API. It utilizes the Streamlit framework to present an interactive user interface, making it easy for users to ask questions and get answers.
+Chat with Wardley's videos and book is an AI-based application that allows you to interact with the the book and content of videos about Wardley Mapping using the OpenAI API. It utilizes the Streamlit framework to present an interactive user interface, making it easy for users to ask questions and get answers.
 \
 \
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://wardleygpt.streamlit.app/)
 
 ## Features
 - Querying the videos using natural language and AI.
+- Querying Simon's book.
 - Incorporates OpenAI's GPT-4 model for generating answers.
 - Uses Streamlit for a user-friendly UI.
 
