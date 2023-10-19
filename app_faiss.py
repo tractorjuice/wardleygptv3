@@ -97,7 +97,7 @@ if query := st.chat_input("What question do you have for the videos?"):
     with st.spinner():
         with st.chat_message("assistant"):
             #response = chain(query)
-            response = ensemble_retriever.get_relevant_documents("what is inertia")
+            #response = ensemble_retriever.get_relevant_documents("what is inertia")
             #st.markdown(response['answer'])
             #st.divider()
             
