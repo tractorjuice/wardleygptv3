@@ -1,5 +1,6 @@
 # Have an AI Chat with the Community Wardley Mapping Videos & Book
 Chat with Simon's Book and Videos on Wardley Mapping from the Community
+/
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/tractorjuice/wardleygptv3)
 
 Chat with Wardley's videos and book is an AI-based application that allows you to interact with the the book and content of videos about Wardley Mapping using the OpenAI API. It utilizes the Streamlit framework to present an interactive user interface, making it easy for users to ask questions and get answers.
