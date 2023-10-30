@@ -1,5 +1,6 @@
 import os
 import re
+import uuid
 import openai
 import streamlit as st
 from langchain.chat_models import ChatOpenAI
@@ -81,6 +82,9 @@ book_retriever = book_index.as_retriever(search_type="mmr", search_kwargs={"k": 
 # initialize the ensemble retriever
 ensemble_retriever = EnsembleRetriever(retrievers=[yt_retriever, book_retriever], weights=[0.5, 0.5])
 
+if "session_id" not in st.session_state:
+    st.session_state.session_id = str(uuid.uuid4())
+    
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -128,5 +132,3 @@ if query := st.chat_input("What question do you have for the videos?"):
                             st.write(f"Page: {metadata.get('page', 'Unknown')}")
                         
                     st.divider()
-
-        #st.session_state.messages.append({"role": "assistant", "content": response['answer']})
