@@ -154,7 +154,7 @@ if user_openai_api_key:
         with st.spinner():
             with st.chat_message("assistant"):
                 response = st.session_state.ensemble_retriever.get_relevant_documents(query)
-                st.markdown(response['answer'])
+                #st.markdown(response['answer'])
                 st.divider()
                 
                 for index, document in enumerate(response):
