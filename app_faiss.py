@@ -128,7 +128,7 @@ if "chain" not in st.session_state:
     
     st.session_state.chain = ConversationalRetrievalChain.from_llm(
         llm=st.session_state.llm,
-        retriever=st.session_state.ensemble_retriever
+        retriever=st.session_state.ensemble_retriever,
         chain_type="stuff",
         rephrase_question = True,
         return_source_documents=True,
