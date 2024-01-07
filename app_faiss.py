@@ -7,7 +7,8 @@ import streamlit as st
 from langchain_community.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferWindowMemory
 from langchain.chains import ConversationalRetrievalChain
-from langchain.retrievers import BM25Retriever, EnsembleRetriever
+from langchain.retrievers import EnsembleRetriever
+from langchain_community.retrievers import BM25Retriever
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain_community.chat_models import PromptLayerChatOpenAI
 from langchain_community.vectorstores import FAISS
