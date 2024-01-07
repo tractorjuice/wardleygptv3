@@ -126,7 +126,6 @@ if "llm" not in st.session_state:
 
 if "chain" not in st.session_state:
 
-    
     st.session_state.chain = ConversationalRetrievalChain.from_llm(
         llm=st.session_state.llm,
         retriever=st.session_state.ensemble_retriever,
@@ -153,7 +152,8 @@ if user_openai_api_key:
     
         with st.spinner():
             with st.chat_message("assistant"):
-                response = st.session_state.ensemble_retriever.get_relevant_documents(query)
+                #response = st.session_state.ensemble_retriever.get_relevant_documents(query)
+                response = st.session_state.chain(query)
                 #st.markdown(response['answer'])
                 st.divider()
                 
