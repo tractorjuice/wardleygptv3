@@ -106,8 +106,8 @@ if "yt_index" not in st.session_state:
     openai = promptlayer.openai
     openai.api_key = user_openai_api_key
 
-    yt_retriever = yt_index.as_retriever(search_type="mmr", search_kwargs={"k": 2})
-    book_retriever = book_index.as_retriever(search_type="mmr", search_kwargs={"k": 2})
+    yt_retriever = st.session_state.yt_index.as_retriever(search_type="mmr", search_kwargs={"k": 2})
+    book_retriever = st.session_state.book_index.as_retriever(search_type="mmr", search_kwargs={"k": 2})
     # initialize the ensemble retriever
     st.session_state.ensemble_retriever = EnsembleRetriever(retrievers=[yt_retriever, book_retriever], weights=[0.5, 0.5])
 
