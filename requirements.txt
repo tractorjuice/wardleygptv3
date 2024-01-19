@@ -1,6 +1,7 @@
-langchain
 langchain-community
-openai
+langchain-core
+langchain-openai
+langchain
 streamlit
 faiss-cpu
 tiktoken
