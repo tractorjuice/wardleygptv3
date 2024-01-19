@@ -9,7 +9,7 @@ from langchain.memory import ConversationBufferWindowMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain.retrievers import EnsembleRetriever
 from langchain_community.retrievers import BM25Retriever
-from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_community.chat_models import PromptLayerChatOpenAI
 from langchain_community.vectorstores import FAISS
 from langchain.prompts.chat import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
