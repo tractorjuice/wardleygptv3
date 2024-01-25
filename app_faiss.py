@@ -15,7 +15,9 @@ from langchain_community.vectorstores import FAISS
 from langchain.prompts.chat import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from streamlit_player import st_player
 
-MODEL = "gpt-3.5-turbo-16k"
+#MODEL = "gpt-3.5-turbo-16k" # Legacy
+MODEL = "gpt-3.5-turbo-1106" # Latest model
+#MODEL = "gpt-4-1106-preview"
 
 # Remove HTML from sources
 def remove_html_tags(text):
