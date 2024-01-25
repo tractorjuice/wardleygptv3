@@ -16,8 +16,11 @@ from langchain.prompts.chat import ChatPromptTemplate, SystemMessagePromptTempla
 from streamlit_player import st_player
 
 #MODEL = "gpt-3.5-turbo-16k" # Legacy
-MODEL = "gpt-3.5-turbo-1106" # Latest model
-#MODEL = "gpt-4-1106-preview"
+#MODEL = "gpt-3.5-turbo-1106" # Current model
+MODEL = "gpt-3.5-turbo-0125" # Latest model
+#MODEL = "gpt-4-0125-preview" Latest model
+
+DEBUG = True # True to overwrite files that already exist
 
 # Remove HTML from sources
 def remove_html_tags(text):
