@@ -2,7 +2,6 @@ import os
 import re
 import uuid
 from langchain_openai import OpenAI
-import promptlayer
 import streamlit as st
 from langchain_community.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferWindowMemory
@@ -10,9 +9,8 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.retrievers import EnsembleRetriever
 from langchain_community.retrievers import BM25Retriever
 from langchain_openai import OpenAIEmbeddings
-from langchain_community.chat_models import PromptLayerChatOpenAI
 from langchain_community.vectorstores import FAISS
-from langchain.prompts.chat import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
+from langchain.s.chat import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from streamlit_player import st_player
 
 MODEL = "gpt-3.5-turbo"
@@ -102,16 +100,13 @@ if user_openai_api_key:
         
         custom_user_template = "Question:'''{question}'''"
         
-        prompt_messages = [
-            SystemMessagePromptTemplate.from_template(custom_system_template),
-            HumanMessagePromptTemplate.from_template(custom_user_template)
+        _messages = [
+            SystemMessageTemplate.from_template(custom_system_template),
+            HumanMessageTemplate.from_template(custom_user_template)
             ]
-        prompt = ChatPromptTemplate.from_messages(prompt_messages)
+         = ChatTemplate.from_messages(_messages)
         
         # If the user has provided an API key, use it
-        # Swap out openai for promptlayer
-        promptlayer.api_key = st.secrets["PROMPTLAYER"]
-        openai = promptlayer.openai
         openai.api_key = user_openai_api_key
     
         yt_retriever = st.session_state.yt_index.as_retriever(search_type="mmr", search_kwargs={"k": 2})
@@ -123,11 +118,10 @@ if user_openai_api_key:
         st.session_state.memory = ConversationBufferWindowMemory(memory_key="chat_history", return_messages=True, output_key='answer')
     
     if "llm" not in st.session_state:
-        st.session_state.llm = PromptLayerChatOpenAI(
+        st.session_state.llm = ChatOpenAI(
             model_name=MODEL,
             temperature=0,
-            max_tokens=300,
-            pl_tags=["wardleygpt3", st.session_state.session_id],
+            max_tokens=500,
         )  # Modify model_name if you have access to GPT-4
     
     if "chain" not in st.session_state:
@@ -139,7 +133,7 @@ if user_openai_api_key:
             rephrase_question = True,
             return_source_documents=True,
             memory=st.session_state.memory,
-            combine_docs_chain_kwargs={'prompt': prompt}
+            combine_docs_chain_kwargs={'': }
         )
         
     if "messages" not in st.session_state:
