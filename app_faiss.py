@@ -104,7 +104,7 @@ if user_openai_api_key:
             SystemMessageTemplate.from_template(custom_system_template),
             HumanMessageTemplate.from_template(custom_user_template)
             ]
-         = ChatTemplate.from_messages(_messages)
+        prompt = ChatTemplate.from_messages(_messages)
         
         # If the user has provided an API key, use it
         openai.api_key = user_openai_api_key
