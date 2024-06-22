@@ -104,7 +104,7 @@ if user_openai_api_key:
             SystemMessageTemplate.from_template(custom_system_template),
             HumanMessageTemplate.from_template(custom_user_template)
             ]
-        prompt = ChatTemplate.from_messages(_messages)
+        prompt = ChatTemplate.from_messages(prompt_messages)
         
         # If the user has provided an API key, use it
         openai.api_key = user_openai_api_key
@@ -133,7 +133,7 @@ if user_openai_api_key:
             rephrase_question = True,
             return_source_documents=True,
             memory=st.session_state.memory,
-            combine_docs_chain_kwargs={'': }
+            combine_docs_chain_kwargs={'prompt': prompt}
         )
         
     if "messages" not in st.session_state:
