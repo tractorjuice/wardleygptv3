@@ -70,7 +70,7 @@ if user_openai_api_key:
             st.session_state.yt_index = FAISS.load_local(
                 YT_DATASTORE,
                 OpenAIEmbeddings(),
-                allow_dangerous_deserialization='True'
+                allow_dangerous_deserialization='True',
             )
         else:
             st.write(f"Missing files. Upload index.faiss and index.pkl files to {DATA_STORE_DIR} directory first")
@@ -78,7 +78,8 @@ if user_openai_api_key:
         if os.path.exists(BOOK_DATASTORE):
             st.session_state.book_index = FAISS.load_local(
                 BOOK_DATASTORE,
-                OpenAIEmbeddings()
+                OpenAIEmbeddings(),
+                allow_dangerous_deserialization='True',
             )
         else:
             st.write(f"Missing files. Upload index.faiss and index.pkl files to {DATA_STORE_DIR} directory first")
