@@ -105,10 +105,7 @@ if user_openai_api_key:
             HumanMessagePromptTemplate.from_template(custom_user_template)
             ]
         prompt = ChatPromptTemplate.from_messages(prompt_messages)
-        
-        # If the user has provided an API key, use it
-        openai.api_key = user_openai_api_key
-    
+           
         yt_retriever = st.session_state.yt_index.as_retriever(search_type="mmr", search_kwargs={"k": 2})
         book_retriever = st.session_state.book_index.as_retriever(search_type="mmr", search_kwargs={"k": 2})
         # initialize the ensemble retriever
