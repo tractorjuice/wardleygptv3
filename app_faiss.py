@@ -101,10 +101,10 @@ if user_openai_api_key:
         custom_user_template = "Question:'''{question}'''"
         
         prompt_messages = [
-            SystemMessageTemplate.from_template(custom_system_template),
-            HumanMessageTemplate.from_template(custom_user_template)
+            SystemMessagePromptTemplate.from_template(custom_system_template),
+            HumanMessagePromptTemplate.from_template(custom_user_template)
             ]
-        prompt = ChatTemplate.from_messages(prompt_messages)
+        prompt = ChatPromptTemplate.from_messages(prompt_messages)
         
         # If the user has provided an API key, use it
         openai.api_key = user_openai_api_key
@@ -121,8 +121,8 @@ if user_openai_api_key:
         st.session_state.llm = ChatOpenAI(
             model_name=MODEL,
             temperature=0,
-            max_tokens=500,
-        )  # Modify model_name if you have access to GPT-4
+            max_tokens=400,
+        )
     
     if "chain" not in st.session_state:
     
