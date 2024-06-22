@@ -100,7 +100,7 @@ if user_openai_api_key:
         
         custom_user_template = "Question:'''{question}'''"
         
-        _messages = [
+        prompt_messages = [
             SystemMessageTemplate.from_template(custom_system_template),
             HumanMessageTemplate.from_template(custom_user_template)
             ]
