@@ -10,7 +10,7 @@ from langchain.retrievers import EnsembleRetriever
 from langchain_community.retrievers import BM25Retriever
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain.s.chat import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
+from langchain.prompts.chat import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from streamlit_player import st_player
 
 MODEL = "gpt-3.5-turbo"
